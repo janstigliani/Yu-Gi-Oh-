@@ -12,14 +12,32 @@
     <header>
         <div>
             <span></span>
-            <input type="search" name="" id="">
+            <input oninput="searchCardById()" type="search" name="" id="">
             <img src="" alt="">
         </div>
     </header>
 
     <main>
         <div>
-            <div></div>
+            <div>
+                <button onclick="getCardByName()">
+                    <span>Sort By Name</span>
+                </button>
+                <button onclick="getCardByType()">
+                    <span>Sort By Type</span>
+                </button>
+                <button onclick="getCardBySet()">
+                    <span>Sort By Set</span>
+                </button>
+                <button onclick="getCardByPrice()">
+                    <span>Sort By Price</span>
+                </button>
+                <button onclick="getCardByAtk()">
+                    <span>Sort By ATK</span>
+                </button>
+
+
+            </div>
             <div id="root">
 
                 <!-- <div class="external-container">

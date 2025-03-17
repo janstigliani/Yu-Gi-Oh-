@@ -28,6 +28,45 @@ class CardService {
         return newArray;
     }
 
+    orderCardByName() {
+        return this.fetchCardData().then(card => {
+            const  arrayofCards = card.slice();
+            arrayofCards.sort((c1,c2) => c1.compareByName(c2));
+            return arrayofCards;
+        })
+    }
+
+    orderCardBySet() {
+        return this.fetchCardData().then(card => {
+            const  arrayofCards = card.slice();
+            arrayofCards.sort((c1,c2) => c1.compareBySet(c2));
+            return arrayofCards;
+        })
+    }
+
+    orderCardByType() {
+        return this.fetchCardData().then(card => {
+            const  arrayofCards = card.slice();
+            arrayofCards.sort((c1,c2) => c1.compareByType(c2));
+            return arrayofCards;
+        })
+    }
+
+    orderCardByPrice() {
+        return this.fetchCardData().then(card => {
+            const  arrayofCards = card.slice();
+            arrayofCards.sort((c1,c2) => c1.compareByPrice(c2));
+            return arrayofCards;
+        })
+    }
+
+    orderCardByAtk() {
+        return this.fetchCardData().then(card => {
+            const  arrayofCards = card.slice();
+            arrayofCards.sort((c1,c2) => c1.compareByAtk(c2));
+            return arrayofCards;
+        })
+    }
 }
 
 export default CardService;

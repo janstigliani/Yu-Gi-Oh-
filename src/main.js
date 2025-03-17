@@ -6,9 +6,41 @@ function getData() {
     service.fetchCardData().then(data => displayCardData(data));
 }
 
+function getCardByName() {
+    const promiseOfOrderedCard = service.orderCardByName()
+    promiseOfOrderedCard.then(orderedCards => displayCardData(orderedCards))
+}
+
+function getCardByType() {
+    const promiseOfOrderedCard = service.orderCardByType()
+    promiseOfOrderedCard.then(orderedCards => displayCardData(orderedCards))
+}
+
+function getCardBySet() {
+    const promiseOfOrderedCard = service.orderCardBySet()
+    promiseOfOrderedCard.then(orderedCards => displayCardData(orderedCards))
+}
+
+function getCardByPrice() {
+    const promiseOfOrderedCard = service.orderCardByPrice()
+    promiseOfOrderedCard.then(orderedCards => displayCardData(orderedCards))
+}
+
+function getCardByAtk() {
+    const promiseOfOrderedCard = service.orderCardByAtk()
+    promiseOfOrderedCard.then(orderedCards => displayCardData(orderedCards))
+}
+
+window.getCardByName = getCardByName;
+window.getCardByType = getCardByType;
+window.getCardBySet = getCardBySet;
+window.getCardByPrice = getCardByPrice;
+window.getCardByAtk = getCardByAtk;
+
+
 function displayCardData(cardData) {
     const root = document.getElementById("root");
-    // root.innerHTML = "";
+    root.innerHTML = "";
 
     for (const card of cardData) {
         
@@ -64,4 +96,4 @@ function createtxtElement(tagType, text) {
     return element;
 }
 
-getData();
+// getData();
