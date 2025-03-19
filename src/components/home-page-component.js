@@ -4,6 +4,15 @@ class HomePageComponent {
     }
 
     async start() {
+        const SynchroBtn = document.getElementById("SynchroBtn");
+        SynchroBtn.addEventListener("click", () => this.synchroPressed());
+
+        const XyzBtn = document.getElementById("XyzBtn");
+        XyzBtn.addEventListener("click", () => this.xyzPressed());
+
+        const homeBtn = document.getElementById("HomeBtn")
+        homeBtn.addEventListener("click", () => this.homePressed());
+
         this.cards = await this.cardService.fetchAllCardsData();
         this.render(this.cards);
     }
@@ -65,6 +74,20 @@ class HomePageComponent {
         const node = document.createTextNode(text);
         element.appendChild(node);
         return element;
+    }
+
+    async synchroPressed() {
+        this.cards = await this.cardService.fetchAllSynchroCardsData();
+        this.render(this.cards);
+    }
+
+    async xyzPressed() {
+        this.cards = await this.cardService.fetchAllXyzCardsData();
+        this.render(this.cards);
+    }
+
+    async homePressed() {
+        this.start();
     }
 }
 

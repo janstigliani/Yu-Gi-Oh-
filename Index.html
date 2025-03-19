@@ -1,53 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yu-Gi-Oh</title>
-    <link rel="stylesheet" href="./src/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yu-Gi-Oh</title>
+  <link rel="stylesheet" href="./src/style.css">
 </head>
 
 <body>
 
-    <header>
-        <div>
+  <header>
+    <!-- <div>
             <span></span>
             <input oninput="searchCardById()" type="search" name="" id="">
             <img src="" alt="">
+        </div> -->
+    <nav>
+      <div class="dropdown">
+        <button class="dropbtn">Filter</button>
+        <div class="dropdown-content">
+          <button class="dropdown-links" id="HomeBtn">
+            <span>Home</span>
+          </button>
+          <button class="dropdown-links" id="SynchroBtn">
+            <span>Synchro Monster</span>
+          </button>
+          <button class="dropdown-links" id="XyzBtn">
+            <span>XYZ Monster</span>
+          </button>
         </div>
-    </header>
+      </div>
+    </nav>
+  </header>
 
-    <main>
-        <div>
-            <div>
-                <button onclick="getCardByName()">
-                    <span>Sort By Name</span>
-                </button>
-                <button onclick="getCardByType()">
-                    <span>Sort By Type</span>
-                </button>
-                <button onclick="getCardBySet()">
-                    <span>Sort By Set</span>
-                </button>
-                <button onclick="getCardByPrice()">
-                    <span>Sort By Price</span>
-                </button>
-                <button onclick="getCardByAtk()">
-                    <span>Sort By ATK</span>
-                </button>
+  <main>
+    <div>
+      <div>
+        
 
-            </div>
-            <div id="root">
 
-            </div>
-        </div>
+      </div>
+      <div id="root">
 
-    </main>
+      </div>
+    </div>
 
-    <footer>
-        <div></div>
-    </footer>
-    
+  </main>
+
+  <footer>
+    <div></div>
+  </footer>
+
 </body>
 
 <script type="module" src="./src/home.js"></script>
