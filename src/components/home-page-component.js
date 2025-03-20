@@ -1,6 +1,8 @@
 class HomePageComponent {  
-    constructor(cardService) {
-        this.cardService = cardService
+
+    constructor(cardService, storageService) {
+        this.cardService = cardService;
+        this.storageService = storageService;
     }
 
     async start() {
@@ -53,11 +55,22 @@ class HomePageComponent {
             cardType.classList.add("card-type");
             cardDesc.classList.add("card-desc");
             cardPrice.classList.add("card-price");
+
+            const saveBtn = document.createElement("button")
+            saveBtn.classList.add("save-btn")
+            saveBtn.addEventListener("click", (event) => this.saveCard(event, i))
+
+            const saveImg = document.createElement("img")
+            saveImg.src = "'/public/yu-gi-oh\ back.png'" //da modificare, aggiungere che se è salvata il cuore è pieno, altrimenti vuoto
+            saveImg.classList.add("save-img")
+
+            saveBtn.appendChilds(saveImg);
             
             cardInfoBackground.appendChild(cardName);
             cardInfoBackground.appendChild(cardType);
             cardInfoBackground.appendChild(cardDesc);
             cardInfoBackground.appendChild(cardPrice);
+            cardInfoBackground.appendChild(saveBtn);
     
             cardInfo.appendChild(cardInfoBackground);
     
@@ -88,6 +101,12 @@ class HomePageComponent {
 
     async homePressed() {
         this.start();
+    }
+
+    saveCard(event,index) {
+        event.preventDefault();
+        const selectedCard = this.cards[index];
+        this.storageService.saveCard(selectedCard);
     }
 }
 
