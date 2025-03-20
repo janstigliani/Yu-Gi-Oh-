@@ -58,13 +58,13 @@ class HomePageComponent {
 
             const saveBtn = document.createElement("button")
             saveBtn.classList.add("save-btn")
-            saveBtn.addEventListener("click", (event) => this.saveCard(event, i))
+            saveBtn.addEventListener("click", () => this.saveCard(i))
 
             const saveImg = document.createElement("img")
-            saveImg.src = "'/public/yu-gi-oh\ back.png'" //da modificare, aggiungere che se è salvata il cuore è pieno, altrimenti vuoto
+            saveImg.src = './public/' //da modificare, aggiungere che se è salvata il cuore è pieno, altrimenti vuoto
             saveImg.classList.add("save-img")
 
-            saveBtn.appendChilds(saveImg);
+            saveBtn.appendChild(saveImg);
             
             cardInfoBackground.appendChild(cardName);
             cardInfoBackground.appendChild(cardType);
@@ -103,8 +103,7 @@ class HomePageComponent {
         this.start();
     }
 
-    saveCard(event,index) {
-        event.preventDefault();
+    async saveCard(index) {
         const selectedCard = this.cards[index];
         this.storageService.saveCard(selectedCard);
     }
